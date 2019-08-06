@@ -94,9 +94,9 @@ To https://github.com/spbail/gitclass.git
  ```
 
 ## Step 8:  look at files on working branch (on GitHub)
-**Note:**  we are on GitHub in browser
-- go to repo
-- may want to toggle "Branch"
+- go to repo on GitHub
+- toggle "Branch" dropdown to find our working branch
+- confirm that new file is there!
 	
 ## Step 9:  submit pull request (on GitHub)
 Go to GitHub and refresh your browser.  
@@ -122,4 +122,3 @@ Select green button "Compare and pull request"
 <kbd>  git status </kbd> <kbd>  git add mercury.md </kbd>  		  
 <kbd>  git status </kbd> <kbd>  git commit -m 'adding second planet' </kbd>  		  
 <kbd>  git status </kbd> <kbd>  git push origin sam_wip </kbd>  
-
