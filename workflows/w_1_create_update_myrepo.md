@@ -107,11 +107,6 @@ origin	https://github.com/spbail/gitclass.git (fetch)
 origin	https://github.com/spbail/gitclass.git (push)
 ```
 
-
-**Examples:**  
-* `upstream` [organization repo]
-* `origin`   [your forked repo]  (will see this later in a fork-repo example)
-
 **Note 1:**  
 * notice you have push and pull access  
 
@@ -255,6 +250,64 @@ To https://github.com/spbail/gitclass.git
 
 ## Final step
 Look at new file on github!
+
+---
+
+# Git history
+
+(Not that kind of history)
+
+## What is a commit?
+A commit is a snapshot of your files at a point in time that's associated with an author and a list of changes. You can see the list of all commits in your repository via the git log:
+<kbd>git log</kbd>
+
+>my example
+```bash
+git log
+```
+
+```bash
+commit 13afc8e450045f80cf00633a438547091bcac4c1
+Author: Sam Bail <samanthapbail@gmail.com>
+Date:   Tue Aug 6 15:50:21 2019 -0400
+
+    Create hello.py
+```
+
+Each commit has a **commit hash** (you'll see either the long or short version) that is used to identify that particular commit.
+
+## git blame and git show
+
+Sometimes you want to know who made changes to a particular line in a file. You can use `git blame <filename>` to see each line annotated with the commit hash and author:
+<kbd>git blame README.md</kbd>
+
+```bash
+git blame holiday.md 
+```
+```bash
+fb319636 (Sam Bail 2019-08-06 15:50:02 -0400 1) Looking forward to the party :pizza: ! :smiley:
+```
+
+By using `git show <commit hash>` you can see all the changes associated with a specific commit:
+
+```bash
+git show fb319636
+```
+```bash
+commit fb319636d437015d7893663df58fdef840b04b41
+Author: Sam Bail <samanthapbail@gmail.com>
+Date:   Tue Aug 6 15:50:02 2019 -0400
+
+    Create holiday.md
+
+diff --git a/holiday.md b/holiday.md
+new file mode 100644
+index 0000000..62404c4
+--- /dev/null
++++ b/holiday.md
+@@ -0,0 +1 @@
++Looking forward to the party :pizza: ! :smiley:
+```
 
 ---
 
