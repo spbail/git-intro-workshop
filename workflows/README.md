@@ -48,9 +48,6 @@ Git is a system for version control. It runs at the **command line on your local
 - configure user
 - set up working directory
 
-### [Workflow 0.4](w_0_4_questionnaire.md): questionnaire (optional)
-- complete questionnaire
-
 ---
 
 ## [Workflow 1](w_1_create_update_myrepo.md): create & update your repo
