@@ -4,7 +4,7 @@
 
 ### Course Created by:  [Reshama Shaikh](https://reshamas.github.io) | [@reshamas](https://twitter.com/reshamas)
 
-This is a fork of Reshama's workshop by Sam Bail with some modifications.
+This is a fork of Reshama's workshop by **Sam Bail [@spbail](http://twitter.com/spbail)** with some modifications.
 
 ---
 
