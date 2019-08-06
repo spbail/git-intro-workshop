@@ -277,7 +277,6 @@ Each commit has a **commit hash** (you'll see either the long or short version) 
 ## git blame and git show
 
 Sometimes you want to know who made changes to a particular line in a file. You can use `git blame <filename>` to see each line annotated with the commit hash and author:
-<kbd>git blame README.md</kbd>
 
 ```bash
 git blame holiday.md 
