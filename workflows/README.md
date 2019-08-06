@@ -2,9 +2,6 @@
 
 ---
 
-## What It's All About
-- Distributed version control
-
 ## GitHub and Git
 
 ### GitHub    -->  [browser]
