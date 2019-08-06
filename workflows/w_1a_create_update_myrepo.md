@@ -7,7 +7,6 @@
 - [ ] Update a local repo from the remote (pull)
 - [ ] Update a remote from local changes (push)
 - [ ] Look at git history
-- [ ] Makes changes and push changes to GH from terminal
 
 ---
 
