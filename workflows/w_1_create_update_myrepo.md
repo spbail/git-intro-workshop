@@ -3,11 +3,12 @@
 #### This is your checklist:
 - [ ] Create a repo on GitHub (GH)
 - [ ] Clone a repo
-- [ ] Update a repo 
 - [ ] Look at remotes
+- [ ] Update a local repo from the remote (pull)
+- [ ] Update a remote from local changes (push)
 - [ ] Create a branch
 - [ ] Switch to another branch
-- [ ] Push changes to GH from terminal
+- [ ] Makes changes and push changes to GH from terminal
 - [ ] Submit a pull request (PR) on GH
 
 ---
@@ -62,25 +63,25 @@ Click on the green button for your forked GitHub repo, and ensure it is showing 
     
 >my example  
 ```text
-https://github.com/reshamas/gitclass.git
+https://github.com/spbail/gitclass.git
 ```
 
 ## Step 4:  go to working directory (your local terminal)
 Go to your working directory  
 >my example
 ```bash
-cd /Users/reshamashaikh/ds/gitsample
+cd /Users/sam/ds/gitsample
 ```
 ```bash
 pwd
-/Users/reshamashaikh/ds/gitsample
+/Users/sam/ds/gitsample
 ```  
 
 ## Step 5:  clone the repo  
 <kbd> git clone <url_name> </kbd> 
 >my example
 ```bash
-git clone https://github.com/reshamas/gitclass.git
+git clone https://github.com/spbail/gitclass.git
 ```
 ```bash
 Cloning into 'gitclass'...
@@ -106,12 +107,12 @@ cd gitclass
 >my example
 ```bash
 git remote -v
-origin	https://github.com/reshamas/gitclass.git (fetch)
-origin	https://github.com/reshamas/gitclass.git (push)
+origin	https://github.com/spbail/gitclass.git (fetch)
+origin	https://github.com/spbail/gitclass.git (push)
 ```
 
 
-**Example:**  
+**Examples:**  
 * `upstream` [organization repo]
 * `origin`   [your forked repo]  (will see this later in a fork-repo example)
 
@@ -121,7 +122,7 @@ origin	https://github.com/reshamas/gitclass.git (push)
 **Note 2:**
 * to remove a remote:  <kbd> git remote rm <remote_name> </kbd>
 
-## Step 8:  update a repo
+## Step 8:  update a local repo from a remote (pull)
 This step copies changes from a remote repository to a local repository.  
 :key:  Do this **before starting work in a repository so you have the most up-to-date-changes.**   
 **Note:**  this is a good step to practice even though the first time you clone a repo it will already be up to date.   
@@ -130,47 +131,174 @@ This step copies changes from a remote repository to a local repository.
 - create `name.py` file on GitHub 
 - <kbd> git pull </kbd> to sync repo
 
+## Step 9:  update a remote repo with local changes (push)
+This step copies syncs a remote repository with a local repository.  
+:key:  We usually **don't make changes on master. We'll cover branches in the next section!**   
+
+## Step 10:  create a file
+<kbd> ls </kbd>  
+<kbd> touch <file_name> </kbd>  
+	
+<kbd> touch mars.md </kbd>  
+
+>my example
+```bash
+ls
+touch mars.md
+```
+```bash
+ls
+total 8
+-rw-r--r--  1   32 Nov 22 09:39 README.md
+% touch mars.md
+% ls
+total 8
+-rw-r--r--  1   32 Nov 22 09:39 README.md
+-rw-r--r--  1    0 Nov 22 09:49 mars.md
+
+	mars.md
+```
+
+---
+# :arrow_right_hook: Git Workflow
+
+## Git Flow 
+| #     | Command                   | Step  | Description      |
+|-------|---------------------------| -----|------------------|
+|  1    | `git add <filename>`      | begin tracking a file | adds a change in the working directory to the staging area; tells Git that you want to include updates to a particular file in the next commit.  |    
+|  2    | `git commit -m "message"` | log the change | changes are recorded in Git (interaction is with local repo) |  
+|  3    | `git push`                | finalize the change | changes are pushed from Git (local, terminal) to GitHub (browser account, remote) | 
+ 
+**Note:**  It is better to make many commits with smaller changes rather than of one commit with massive changes: small commits are easier to read and review.
+
+
+## Step 11:  get status of repo
+<kbd> git status </kbd>  
+>my example
+```bash
+% git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	mars.md
+nothing added to commit but untracked files present (use "git add" to track)
+```
+    
+## Step 12:  add/stage a file
+<kbd> git add <file_name> </kbd>   
+	
+>my example  
+```bash
+git add mars.md 
+```
+
+**Note:**  to `add` a file is to begin tracking it:  
+- adds a change in the working directory to the staging area
+- tells Git that you want to include updates to a particular file in the next commit
+
+## Step 13:  get status of repo
+<kbd> git status </kbd>  
+>my example
+```bash
+% git status
+On branch sam_wip
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   mars.md
+```
+
+## Step 14:  commit a file  
+<kbd> git commit -m 'message' </kbd>  
+	
+>my example
+```bash
+git commit -m 'adding first planet'
+```
+	
+```bash
+% git commit -m 'adding first planet'
+[master 3950dd9] adding first planet
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 mars.md
+```
+**Note:**  to `commit` a file is to "log the change":  
+- changes are recorded in Git (interaction is with local repo)
+
+## Step 15:  get status of repo
+<kbd> git status </kbd>  
+>my example
+```bash
+% git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   mars.md
+```
+
+## Step 19:  push changes to your remote repo
+<kbd> git push </kbd>  
+	
+>my example
+```bash
+git push
+```	
+
+```bash
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 273 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/spbail/gitclass.git
+ * [new branch]      master -> master
+ ```
+**Note:**  to `push` a "commit" is to "finalize the change":  
+- changes are pushed from Git (local, terminal) to GitHub (browser account, remote)
+
+## Final step
+Look at new file on github!
 
 ---
 
 # :arrow_right_hook: Why use branches?
-- **Branching** means you diverge from the main line of development and continue to do work without changing the main line, like "scratch paper" but for online coding.  
+- **Branching** means you diverge from the main line (usually the "master" branch) of development and continue to do work without changing the main line, like "scratch paper" but for online coding.  
 - Can work on different parts in the codebase, or "features" or "web page updates"
     - create a separate *history* for each new *feature*
 - More details can be found here:  [branches](../git_6_branches.md)
 
 
-## Step 9:  list branches
+## Step 20:  list branches
 <kbd> git branch </kbd>  
 >my example
 ```git
 git branch
 * master
 ```
-
  
-## Step 10:  create a working branch
+## Step 21:  create a working branch
 <kbd> git branch <branch_name> </kbd>
 	
 >my example  
-`git branch reshama_wip`
+`git branch sam_wip`
 
-## Step 11:  list branches
+## Step 22:  list branches
 <kbd> git branch </kbd>  
 >my example
 ```git
 git branch
 * master
-  reshama_wip
+  sam_wip
 ```
 
-## Step 12:  switch to working branch
+## Step 23:  switch to working branch
 <kbd> git checkout <branch_name> </kbd>  
 >my example  
-`git checkout reshama_wip`
+`git checkout sam_wip`
 
 
-## Step 13:  create a file
+## Step 24:  create another file
 <kbd>  ls </kbd>  
 <kbd> touch <file_name> </kbd>  
 	
@@ -195,93 +323,15 @@ total 8
 ```
 
 ---
-# :arrow_right_hook: Git Workflow
+## Step 22: go through the git add/commit workflow
+Use git add and commit to make a new "commit" for the mercury.md file.
 
-## Git Flow 
-| #     | Command                   | Step  | Description      |
-|-------|---------------------------| -----|------------------|
-|  1    | `git add <filename>`      | begin tracking a file | adds a change in the working directory to the staging area; tells Git that you want to include updates to a particular file in the next commit.  |    
-|  2    | `git commit -m "message"` | log the change | changes are recorded in Git (interaction is with local repo) |  
-|  3    | `git push`                | finalize the change | changes are pushed from Git (local, terminal) to GitHub (browser account, remote) | 
- 
-**Note:**  It is better to make many commits with smaller changes rather than of one commit with massive changes: small commits are easier to read and review.
-
-
-<p>
-<img src="../images/git_shopping_cart.jpg" width="99%" height="99%" />
-</p>
-
-## Step 14:  get status of repo
-<kbd> git status </kbd>  
->my example
-```bash
-% git status
-On branch reshama_wip
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-	mercury.md
-nothing added to commit but untracked files present (use "git add" to track)
-```
-    
-## Step 15:  add/stage a file
-<kbd> git add <file_name> </kbd>   
-	
->my example  
-```bash
-git add mercury.md 
-```
-
-**Note:**  to `add` a file is to begin tracking it:  
-- adds a change in the working directory to the staging area
-- tells Git that you want to include updates to a particular file in the next commit
-
-## Step 16:  get status of repo
-<kbd> git status </kbd>  
->my example
-```bash
-% git status
-On branch reshama_wip
-Changes to be committed:
-  (use "git reset HEAD <file>..." to unstage)
-
-	new file:   mercury.md
-```
-
-## Step 17:  commit a file  
-<kbd> git commit -m 'message' </kbd>  
-	
->my example
-```bash
-git commit -m 'adding first planet'
-```
-	
-```bash
-% git commit -m 'adding first planet'
-[reshama_wip 3950dd9] adding first planet
- 1 file changed, 0 insertions(+), 0 deletions(-)
- create mode 100644 mercury.md
-```
-**Note:**  to `commit` a file is to "log the change":  
-- changes are recorded in Git (interaction is with local repo)
-
-## Step 18:  get status of repo
-<kbd> git status </kbd>  
->my example
-```bash
-% git status
-On branch reshama_wip
-Changes to be committed:
-  (use "git reset HEAD <file>..." to unstage)
-
-	new file:   mercury.md
-```
-
-## Step 19:  push changes to your 'working branch' 
+## Step 23:  push changes to your 'working branch' 
 <kbd> git push <remote_name> <branch_wip> </kbd>  
 	
 >my example
 ```bash
-git push origin reshama_wip
+git push origin sam_wip
 ```	
 
 ```bash
@@ -290,39 +340,37 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (2/2), done.
 Writing objects: 100% (3/3), 273 bytes | 0 bytes/s, done.
 Total 3 (delta 0), reused 0 (delta 0)
-To https://github.com/reshamas/gitclass.git
- * [new branch]      reshama_wip -> reshama_wip
+To https://github.com/spbail/gitclass.git
+ * [new branch]      sam_wip -> sam_wip
  ```
-**Note:**  to `push` a "commit" is to "finalize the change":  
-- changes are pushed from Git (local, terminal) to GitHub (browser account, remote)
 
-## Step 20:  look at files on working branch (on GitHub)
+## Step 24:  look at files on working branch (on GitHub)
 **Note:**  we are on GitHub in browser
 - go to repo
 - may want to toggle "Branch"
 	
-## Step 21:  submit pull request (on GitHub)
+## Step 25:  submit pull request (on GitHub)
 Go to GitHub and refresh your browser.  
-My url is:  https://github.com/reshamas/gitclass  
+My url is:  https://github.com/spbail/gitclass  
 
 Select green button "Compare and pull request"  
 <img src="../images/pull_request_button.png" align="left" height="40" width="180" >   <br> <br>
 
 ---
 
-## Summary of Steps
-<kbd> cd /Users/reshamashaikh/ds/gitsample </kbd>  
+### Summary of Steps for using branches
+<kbd> cd /Users/sam/ds/gitsample </kbd>  
 <kbd>  pwd </kbd>   
-<kbd> git clone https://github.com/reshamas/gitclass.git </kbd>   
+<kbd> git clone https://github.com/spbail/gitclass.git </kbd>   
 <kbd> cd gitclass </kbd>   
 <kbd> git remote -v </kbd>  
 <kbd> git pull </kbd>  
-<kbd> git branch </kbd> <kbd> git branch reshama_wip </kbd>  
-<kbd> git branch </kbd> <kbd> git checkout reshama_wip </kbd>  
+<kbd> git branch </kbd> <kbd> git branch sam_wip </kbd>  
+<kbd> git branch </kbd> <kbd> git checkout sam_wip </kbd>  
 <kbd>  ls </kbd>  
 <kbd> touch mercury.md </kbd>  
 <kbd>  ls </kbd>  
 <kbd>  git status </kbd> <kbd>  git add mercury.md </kbd>  		  
-<kbd>  git status </kbd> <kbd>  git commit -m 'adding first planet' </kbd>  		  
-<kbd>  git status </kbd> <kbd>  git push origin reshama_wip </kbd>  
+<kbd>  git status </kbd> <kbd>  git commit -m 'adding second planet' </kbd>  		  
+<kbd>  git status </kbd> <kbd>  git push origin sam_wip </kbd>  
 
