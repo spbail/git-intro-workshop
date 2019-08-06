@@ -1,5 +1,10 @@
 # Workflow 1b: Branches in git
 
+- [ ] Create a branch
+- [ ] Switch to another branch
+- [ ] Makes changes and push changes to GH from terminal
+- [ ] Submit a pull request (PR) on GH
+
 ## :arrow_right_hook: Why use branches?
 - **Branching** means you diverge from the main line (usually the "master" branch) of development and continue to do work without changing the main line, like "scratch paper" but for online coding.  
 - Can work on different parts in the codebase, or "features" or "web page updates"
