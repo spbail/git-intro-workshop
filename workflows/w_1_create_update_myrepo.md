@@ -34,6 +34,8 @@ REMINDER:  did you [configure the user name](https://github.com/reshamas/git-int
   - add a line, the ubiquitous:  `print("Hello World")`
   - commit file at end of page
   - add a description for GitHub commit
+  
+**The usual workflow is to create a repo, clone it, create and edit all your files locally, and then push things to your repo. We're just creating files on github for a quick start!**
 
 ### Note: Ensure commit messages are meaningful.
 
@@ -46,6 +48,8 @@ REMINDER:  did you [configure the user name](https://github.com/reshamas/git-int
 
 **Q:  What is cloning?**  
 **A:  Making a copy of something.**
+
+For git, it generally means making a local copy of a repository that's hosted somewhere else.
 
 <p>
 <img src="../images/orphan_black.jpg" width="50%" height="50%" />
@@ -91,6 +95,8 @@ Unpacking objects: 100% (3/3), done.
 ```bash
 cd gitclass 
 ```
+	
+**Quick detour: let's look at the .git directory in your repo!**
 
 ## Step 7:  look at remotes
 **Q:  What is a remote?**  
