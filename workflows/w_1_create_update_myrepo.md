@@ -52,10 +52,6 @@ REMINDER:  did you [configure the user name](https://github.com/reshamas/git-int
 
 For git, it generally means making a local copy of a repository that's hosted somewhere else.
 
-<p>
-<img src="../images/orphan_black.jpg" width="50%" height="50%" />
-</p>
-
 ### Copy URL for cloning
 
 Click on the green button for your forked GitHub repo, and ensure it is showing the url for **Clone with HTTPS**  (other option is "Clone with SSH").  Copy that URL.    <br> 
