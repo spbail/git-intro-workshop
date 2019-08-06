@@ -1,4 +1,4 @@
-# Branches in git
+# Workflow 1b: Branches in git
 
 ## :arrow_right_hook: Why use branches?
 - **Branching** means you diverge from the main line (usually the "master" branch) of development and continue to do work without changing the main line, like "scratch paper" but for online coding.  
