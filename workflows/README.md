@@ -2,18 +2,27 @@
 
 ---
 
-## GitHub and Git
+## What It's All About
+- Distributed version control
+
+## Git and GitHub
+
+### Git     --> [terminal]
+Git is a system for (distributed) version control. It runs at the **command line on your local machine** and allows you to keep track of your files and modifications in a "repository". Behind the scenes, Git keeps track of all changes to your files in metadata that's stored in a .git subdirectory in any repository.
+
+*Distributed* version control means you have not only local version control, but can also sync files to/with remote copies.
+
+Git was created by Linus Torvalds in 2005 for development of the Linux kernel, with other kernel developers contributing to its initial development.
 
 ### GitHub    -->  [browser]
-GitHub is a **website** that allows you to upload your git respositories online. It allows you to have a backup of your files, has a visual interface to navigate your repos, and it allows other people to be able to view your repos. 
+GitHub is a **website** that allows you to upload your git respositories online. It allows you to have a backup of your files, has a visual interface to navigate your repos, and it allows other people to be able to view your repos. Alternatives to GitHub are BitBucket and GitLab (self-hosted system), but GitHub is by far the most commonly used service.
 
 GitHub is a central place to store your repo, so others can clone it, push to it, and pull from it.
 
 It also includes some very nice tools for software projects, like Markdown README rendering, issue tracker and wiki tools, and the ability to “fork” a project to make your own independent copy of it for development.
 
-### Git     --> [terminal]
-Git is a system for version control. It runs at the **command line on your local machine** and allows you to keep track of your files and modifications in a "repository". 
 
+**Note:** If you only want to have local version control, you don't need to use GitHub at all. But of course, having remote backups of your files, collaboration features, etc, is a great plus.
 
 <p>
 <img src="../images/git_github_difference.png" width="95%" height="95%" />
@@ -47,18 +56,14 @@ Git is a system for version control. It runs at the **command line on your local
 
 ---
 
-## [Workflow 1a](w_1a_create_update_myrepo.md): create & update your repo
+## [Workflow 1](w_1_create_update_myrepo.md): create & update your repo
 - create repo on GitHub
   - add, update files on GitHub
 - clone (copy) GH repo to local computer
   - look at remotes
+  - work with branches
   - add, update files at Git terminal and send changes up to GH
-  - look at git history
-
-## [Workflow 1b](w_1b_branches.md.md): work with branches
-- create local branch
-- make changes and push to remote branch
-- submit a pull request 
+  - submit a pull request 
 
 ## [Workflow 2](w_2_pull_request_org_repo.md): fork & update an organization repo 
 - fork/clone an organization's repo
