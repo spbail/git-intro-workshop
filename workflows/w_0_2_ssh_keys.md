@@ -1,13 +1,11 @@
 # Workflow 0.2: SSH Setup (optional)
 
-### Purpose
-With SSH authentication you don't need to enter your credentials (GitHub username and password each time you push a commit to the remote).  You can skip this step for now and complete it later after the course.  
-
 #### This is your checklist:
 - [ ] Set up `ssh` keys
 - [ ] Add `ssh` key to GitHub
-- [ ] Configure user
-- [ ] Set up working directory
+
+### Purpose
+With SSH authentication you don't need to enter your credentials (GitHub username and password each time you push a commit to the remote).  You can skip this step for now and complete it later after the course.  
 
 ## Mac Users
 
