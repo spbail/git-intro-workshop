@@ -4,7 +4,7 @@
 
 ### Course Created by:  [Reshama Shaikh](https://reshamas.github.io) | [@reshamas](https://twitter.com/reshamas)
 
-This is a fork of Reshama's workshop by Sam Bail with minimal modifications.
+This is a fork of Reshama's workshop by Sam Bail with some modifications.
 
 ---
 
@@ -19,24 +19,19 @@ This workshop covers Git CLI (command line interface, *not Git GUI*).
 
 #### Part 3:  [Setup](/workflows/w_0_3_setup.md) (Required)
 
-#### Part 4:  [Questionnaire](/workflows/w_0_4_questionnaire.md) (Optional)
-
 
 ### Objectives
 * Introduction to Git & GitHub
-     - GitHub browser
+     - Intro to version control and git
+     - Intro to GitHub
      - Settings
-     - Navigating page
+     - Navigating GitHub
 * Individual repositories 
      - learn to create a repo on GitHub and update via Git
      - clone a repository (copy from GitHub browser to local machine using Git)
-     - add collaborators 
+     - make and sync changes between a local and remote repo
      - create a branch and work from it
      - undo Git changes
 * Collaborating
      - clone an organization's repo
      - make changes and submit a pull request
-     
-### Online Communication Sheet
-* [shared doc](https://docs.google.com/document/d/1y5cuZW1M7uFTGou27zmRMRIok5javSQssqVvLU_apj4/edit?usp=sharing)
-
