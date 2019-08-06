@@ -31,7 +31,7 @@ git branch
 ## Step 3:  list branches
 <kbd> git branch </kbd>  
 >my example
-```git
+```bash
 git branch
 * master
   sam_wip
@@ -40,7 +40,9 @@ git branch
 ## Step 4:  switch to working branch
 <kbd> git checkout <branch_name> </kbd>  
 >my example  
-`git checkout sam_wip`
+```bash
+git checkout sam_wip
+```
 
 ## Alternative (one-line) workflow for Steps 21 and 23:
 <kbd> git checkout -b <branch_name> </kbd>
