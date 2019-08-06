@@ -2,10 +2,7 @@
 
 ---
 
-## What It's All About
-- Distributed version control
-
-## Git and GitHub
+## Intro to Git and GitHub
 
 ### Git     --> [terminal]
 Git is a system for (distributed) version control. It runs at the **command line on your local machine** and allows you to keep track of your files and modifications in a "repository". Behind the scenes, Git keeps track of all changes to your files in metadata that's stored in a .git subdirectory in any repository.
@@ -21,6 +18,7 @@ GitHub is a central place to store your repo, so others can clone it, push to it
 
 It also includes some very nice tools for software projects, like Markdown README rendering, issue tracker and wiki tools, and the ability to “fork” a project to make your own independent copy of it for development.
 
+[Read more about GitHub in this TechCrunch article!](https://techcrunch.com/2012/07/14/what-exactly-is-github-anyway/)
 
 **Note:** If you only want to have local version control, you don't need to use GitHub at all. But of course, having remote backups of your files, collaboration features, etc, is a great plus.
 
