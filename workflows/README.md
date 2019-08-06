@@ -50,14 +50,18 @@ Git is a system for version control. It runs at the **command line on your local
 
 ---
 
-## [Workflow 1](w_1_create_update_myrepo.md): create & update your repo
+## [Workflow 1a](w_1a_create_update_myrepo.md): create & update your repo
 - create repo on GitHub
   - add, update files on GitHub
 - clone (copy) GH repo to local computer
   - look at remotes
-  - work with branches
   - add, update files at Git terminal and send changes up to GH
-  - submit a pull request 
+  - look at git history
+
+## [Workflow 1b](w_1b_branches.md.md): work with branches
+- create local branch
+- make changes and push to remote branch
+- submit a pull request 
 
 ## [Workflow 2](w_2_pull_request_org_repo.md): fork & update an organization repo 
 - fork/clone an organization's repo
