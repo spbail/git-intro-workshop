@@ -293,6 +293,8 @@ git branch
 >my example  
 `git checkout sam_wip`
 
+## Alternative (one-line) workflow for Steps 21 and 23:
+<kbd> git checkout -b <branch_name> </kbd>
 
 ## Step 24:  create another file
 <kbd>  ls </kbd>  
