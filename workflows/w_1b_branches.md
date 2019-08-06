@@ -9,7 +9,7 @@
 - **Branching** means you diverge from the main line (usually the "master" branch) of development and continue to do work without changing the main line, like "scratch paper" but for online coding.  
 - Can work on different parts in the codebase, or "features" or "web page updates"
     - create a separate *history* for each new *feature*
-- More details can be found here:  [branches](../git_6_branches.md)
+- This is an interesting article on branches:  [Atlassian tutorial on branches](https://www.atlassian.com/git/tutorials/using-branches)
 
 
 ## Step 1:  list branches
@@ -20,11 +20,13 @@ git branch
 * master
 ```
  
-## Step 2:  create a working branch
+## Step 2:  create a working branch (or "feature branch")
 <kbd> git branch <branch_name> </kbd>
 	
 >my example  
 `git branch sam_wip`
+
+**Note:** You can create a branch off of any branch, not just master. When creating a new branch, make sure you're branching off of the right thing! When working in shared repos, it's also good practice to go to master (or the feature branch you want to work off) and pull from the remote before branching. That way you're branching off of the latest status of the repo. 
 
 ## Step 3:  list branches
 <kbd> git branch </kbd>  
