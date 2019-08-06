@@ -1,4 +1,4 @@
-# Workflow 1:  Create and Update My Repo
+# Workflow 1a:  Create and Update My Repo
 
 #### This is your checklist:
 - [ ] Create a repo on GitHub (GH)
