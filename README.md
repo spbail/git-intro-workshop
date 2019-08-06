@@ -31,7 +31,7 @@ This workshop covers Git CLI (command line interface, *not Git GUI*).
      - clone a repository (copy from GitHub browser to local machine using Git)
      - make and sync changes between a local and remote repo
      - create a branch and work from it
-     - undo Git changes
+     - (Optional) undo Git changes
 * Collaborating
      - clone an organization's repo
      - make changes and submit a pull request
