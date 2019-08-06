@@ -94,7 +94,7 @@ Go to GitHub and refresh your browser.
 My url is:  https://github.com/spbail/gitclass  
 
 Select green button "Compare and pull request"  
-<img src="../images/pull_request_button.png" align="left" height="40" width="180" >   <br> <br>
+<img src="../images/pull_request_button.png" align="left" height="40">   <br> <br>
 
 ---
 
