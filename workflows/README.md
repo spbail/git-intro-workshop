@@ -3,7 +3,7 @@
 ---
 
 ## What It's All About
-- version control
+- Distributed version control
 
 ## GitHub and Git
 
@@ -25,10 +25,10 @@ Git is a system for version control. It runs at the **command line on your local
 
 
 ## Why it's good to know Git
-- **backing up your code**
-- open source
+- version control your code - easier to roll back changes
+- backing up your code remotely
 - can share your coding work publicly
-- can collaborate with others on projects
+- can collaborate with others on projects and review/control changes
 - knowing version control lets you contribute to open source (these repos are public)
 
 ---
