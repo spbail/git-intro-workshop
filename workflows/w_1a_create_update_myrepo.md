@@ -11,29 +11,31 @@
 ---
 
 ## Step 0:  Configure user
-REMINDER:  did you [configure the user name](https://github.com/reshamas/git-intro-workshop/blob/master/workflows/w_0_3_setup.md#step-1--configure-user-on-local-computer)?
+REMINDER:  Did you [configure the git user name on your machine?](https://github.com/reshamas/git-intro-workshop/blob/master/workflows/w_0_3_setup.md#step-1--configure-user-on-local-computer)
 
-## Step 1:  create a repo (on GitHub)
+## Step 1:  Create a repo (on GitHub)
 - Click on `+` next to your profile picture
 - Select `New Repository`
-- Repository name:  `gitclass`
-- Description (optional):  `test project for git`
+- Repository name:  `git_workshop`
+- Description (optional):  `Test project for git workshop`
 - `Public` repos are free
-- Check box for `Initialize this repository with a README` :white_check_mark: :heavy_exclamation_mark:
-- Select green button `Create repository`
+- Check box for `Initialize this repository with a README`
+- Click green button `Create repository`
 
 ## Step 2:  Let's add a couple of files
-- Add a Markdown file:  `holiday.md`
-  - add a line with an emoji
-  - I added:  `Looking forward to the party :pizza: ! :smiley:_` :arrow_right: _Looking forward to the party :pizza: ! :smiley:_
-  	- Here's the [Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet/) :octocat:  - commit file at end of page
-  - commit file at end of page
-- Add a Python file:  `hello.py`
-  - add a line, the ubiquitous:  `print("Hello World")`
-  - commit file at end of page
-  - add a description for GitHub commit
+
+Usually, we'd be creating and modifying files (e.g. code) on our own machines and then pushing them to GitHub. For the purpose of this workshop, we'll start with just creating some files directly on GitHub!
+
+- Add a Markdown file:  `my_file.md`
+  - Add some text
+  - Commit file at end of page
+  - Add a description for GitHub commit
+- Add a Python file: `hello.py`
+  - Add a line, the ubiquitous:  `print("Hello World")`
+  - Commit file at end of page
+  - Add a description for GitHub commit
   
-**The usual workflow is to create a repo, clone it, create and edit all your files locally, and then push things to your repo. We're just creating files on github for a quick start!**
+**The usual workflow is to create a repo, clone it, create and edit all your files locally, and then push things to your repo. We're just creating files on GitHub for a quick start!**
 
 ### Note: Ensure commit messages are meaningful.
 
@@ -42,7 +44,7 @@ REMINDER:  did you [configure the user name](https://github.com/reshamas/git-int
 </p>
 
 
-## Step 3: `clone` the repo from GitHub to our terminal
+## Step 3: `clone` the repo from GitHub to our local machine
 
 **Q:  What is cloning?**  
 **A:  Making a copy of something.**
@@ -51,15 +53,15 @@ For git, it generally means making a local copy of a repository that's hosted so
 
 ### Copy URL for cloning
 
-Click on the green button for your forked GitHub repo, and ensure it is showing the url for **Clone with HTTPS**  (other option is "Clone with SSH").  Copy that URL.    <br> 
+Click on the green button for your forked GitHub repo, and ensure it is showing the URL for **Clone with HTTPS**  (other option is "Clone with SSH").  Copy that URL.    <br> 
 <img src="../images/github_clone_button.png" align="left" height="40" width="180" >   <br> <br>
     
 >my example  
 ```text
-https://github.com/spbail/gitclass.git
+https://github.com/spbail/git_workshop.git
 ```
 
-## Step 4:  go to working directory (your local terminal)
+## Step 4:  Go to working directory (your local terminal)
 Go to your working directory  
 >my example
 ```bash
@@ -74,10 +76,10 @@ pwd
 <kbd> git clone <url_name> </kbd> 
 >my example
 ```bash
-git clone https://github.com/spbail/gitclass.git
+git clone https://github.com/spbail/git_workshop.git
 ```
 ```bash
-Cloning into 'gitclass'...
+Cloning into 'git_workshop'...
 remote: Counting objects: 3, done.
 remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
 Unpacking objects: 100% (3/3), done.
@@ -87,12 +89,12 @@ Unpacking objects: 100% (3/3), done.
 <kbd> cd <repo_name> </kbd>
 >my example
 ```bash
-cd gitclass 
+cd git_workshop 
 ```
 	
-**Quick detour: let's look at the .git directory in your repo!**
+**Quick detour: let's look at the (hidden) .git directory in your repo!**
 
-## Step 7:  look at remotes
+## Step 7:  Look at remotes
 **Q:  What is a remote?**  
 **A:  **Remotes** are copies of a repo on another computer **(or on a service like GitHub)****
 
@@ -100,51 +102,53 @@ cd gitclass
 >my example
 ```bash
 git remote -v
-origin	https://github.com/spbail/gitclass.git (fetch)
-origin	https://github.com/spbail/gitclass.git (push)
+origin	https://github.com/spbail/git_workshop.git (fetch)
+origin	https://github.com/spbail/git_workshop.git (push)
 ```
 
 **Note 1:**  
-* notice you have push and pull access  
+* Notice you have push and pull access  
 
 **Note 2:**
-* to remove a remote:  <kbd> git remote rm <remote_name> </kbd>
+* To remove a remote:  <kbd> git remote rm <remote_name> </kbd>
 
-## Step 8:  update a local repo from a remote (pull)
-This step copies changes from a remote repository to a local repository.  
-:key:  Do this **before starting work in a repository so you have the most up-to-date-changes.**   
+## Step 8:  Update a local repo from a remote (pull)
+
+This step syncs changes from a *remote* repository to a *local* repository. This is usually important when you're collaborating with someone else and they might have made changes to files in the repo.
+
+:key:  You usually do this **before starting work in a repository so you have the most up-to-date-changes.**   
 **Note:**  this is a good step to practice even though the first time you clone a repo it will already be up to date.   
 
 - <kbd> git pull </kbd> 
 - create `name.py` file on GitHub 
 - <kbd> git pull </kbd> to sync repo
 
-## Step 9:  update a remote repo with local changes (push)
+## Step 9:  Update a remote repo with local changes (push)
 This step copies syncs a remote repository with a local repository.  
 :key:  We usually **don't make changes on master. We'll cover branches in the next section!**   
 
-## Step 10:  create a file
+## Step 10:  Create a new file
 <kbd> ls </kbd>  
 <kbd> touch <file_name> </kbd>  
 	
-<kbd> touch mars.md </kbd>  
+<kbd> touch another_file.md </kbd>  
 
 >my example
 ```bash
 ls
-touch mars.md
+touch another_file.md
 ```
 ```bash
 ls
 total 8
 -rw-r--r--  1   32 Nov 22 09:39 README.md
-% touch mars.md
+% touch another_file.md
 % ls
 total 8
 -rw-r--r--  1   32 Nov 22 09:39 README.md
--rw-r--r--  1    0 Nov 22 09:49 mars.md
+-rw-r--r--  1    0 Nov 22 09:49 another_file.md
 
-	mars.md
+	another_file.md
 ```
 
 ---
@@ -157,7 +161,7 @@ total 8
 |  2    | `git commit -m "message"` | log the change | changes are recorded in Git (interaction is with local repo) |  
 |  3    | `git push`                | finalize the change | changes are pushed from Git (local, terminal) to GitHub (browser account, remote) | 
  
-**Note:**  It is better to make many commits with smaller changes rather than of one commit with massive changes: small commits are easier to read and review.
+**Note:**  It is better to make many commits with smaller changes rather than of one commit with massive changes: small commits are easier to read and review. **However** you might want to "squash" all your commits in the end to make sure the Git history isn't cluttered.
 
 
 ## Step 11:  get status of repo
@@ -168,23 +172,23 @@ total 8
 On branch master
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
-	mars.md
+	another_file.md
 nothing added to commit but untracked files present (use "git add" to track)
 ```
     
-## Step 12:  add/stage a file
+## Step 12:  Add/stage a file
 <kbd> git add <file_name> </kbd>   
 	
 >my example  
 ```bash
-git add mars.md 
+git add another_file.md 
 ```
 
 **Note:**  to `add` a file is to begin tracking it:  
-- adds a change in the working directory to the staging area
-- tells Git that you want to include updates to a particular file in the next commit
+- Adds a change in the working directory to the staging area
+- Tells Git that you want to include updates to a particular file in the next commit
 
-## Step 13:  get status of repo
+## Step 13:  Get status of repo
 <kbd> git status </kbd>  
 >my example
 ```bash
@@ -193,7 +197,7 @@ On branch sam_wip
 Changes to be committed:
   (use "git reset HEAD <file>..." to unstage)
 
-	new file:   mars.md
+	new file:   another_file.md
 ```
 
 ## Step 14:  commit a file  
@@ -201,19 +205,19 @@ Changes to be committed:
 	
 >my example
 ```bash
-git commit -m 'adding first planet'
+git commit -m 'Adding a new file'
 ```
 	
 ```bash
-% git commit -m 'adding first planet'
-[master 3950dd9] adding first planet
+% git commit -m 'Adding a new file'
+[master 3950dd9] Adding a new file
  1 file changed, 0 insertions(+), 0 deletions(-)
- create mode 100644 mars.md
+ create mode 100644 another_file.md
 ```
 **Note:**  to `commit` a file is to "log the change":  
-- changes are recorded in Git (interaction is with local repo)
+- Changes are recorded in Git (interaction is with local repo)
 
-## Step 15:  get status of repo
+## Step 15:  Get status of repo
 <kbd> git status </kbd>  
 >my example
 ```bash
@@ -222,7 +226,7 @@ On branch master
 Changes to be committed:
   (use "git reset HEAD <file>..." to unstage)
 
-	new file:   mars.md
+	new file:   another_file.md
 ```
 
 ## Step 19:  push changes to your remote repo
@@ -239,14 +243,14 @@ Delta compression using up to 4 threads.
 Compressing objects: 100% (2/2), done.
 Writing objects: 100% (3/3), 273 bytes | 0 bytes/s, done.
 Total 3 (delta 0), reused 0 (delta 0)
-To https://github.com/spbail/gitclass.git
+To https://github.com/spbail/git_workshop.git
  * [new branch]      master -> master
  ```
 **Note:**  to `push` a "commit" is to "finalize the change":  
-- changes are pushed from Git (local, terminal) to GitHub (browser account, remote)
+- changes are pushed from Git (local) to GitHub (browser account, remote)
 
 ## Final step
-Look at new file on github!
+Look at new file on GitHub!
 
 ---
 
