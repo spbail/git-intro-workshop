@@ -1,4 +1,4 @@
-# Workflow 1a:  Create and Update My Repo
+# Workflow 1a:  Create and update my repo
 
 #### In this workflow, you will learn how to:
 - [ ] Create a repo on GitHub (GH)
@@ -10,10 +10,11 @@
 
 ---
 
-## Step 0:  Configure user
+## Step 0:  Recap: Configure local Git user
 **REMINDER:**  Did you [configure the Git user name on your machine?](https://github.com/reshamas/git-intro-workshop/blob/master/workflows/w_0_3_setup.md#step-1--configure-user-on-local-computer)
 
-## Step 1:  Create a repo (on GitHub)
+## Step 1:  Create a repository (on GitHub)
+
 - Click on `+` next to your profile picture
 - Select `New repository`
 - Repository name:  `git_workshop`
@@ -53,8 +54,7 @@ Commit messages are an easy way for yourself and other people to know what each 
 
 For Git, it generally means making a *local copy* of a repository that's hosted somewhere else.
 
-### Copy URL for cloning
-
+**Copy URL for cloning:**
 Click on the green button on the home page of your "git_workshop" repo on GitHub. It will show two URL options:
 - If you have not yet set up your SSH keys, you will authenticate with username and password - pick the HTTPS URL to clone the repo
 - If you have already set up your SSH keys, pick the SSH option
@@ -69,87 +69,76 @@ cd /Users/sam/code/
 git clone https://github.com/spbail/git_workshop.git
 ```
 
-## Step 6:  `cd` into the repo
-<kbd> cd <repo_name> </kbd>
->my example
+## Step 6:  Inspect the repo
+
+Navigate to the repo you just cloned and look at the files and directories it contains:
+
 ```bash
 cd git_workshop 
+ls -lah
 ```
+
+**Running git status**:
+`git status` always shows you the current status of your repository. It shows what branch you are on and what the status of the files in your repository is. Go ahead 
 	
-**Quick detour: let's look at the (hidden) .git directory in your repo!**
+**Quick detour: let's look at the contents of the (hidden) .git directory in your repo!**
 
 ## Step 7:  Look at remotes
 **Q:  What is a remote?**  
 **A:  **Remotes** are copies of a repo on another computer **(or on a service like GitHub)****
 
-<kbd> git remote -v </kbd>
->my example
+This is what `git remote` looks like if you have cloned your repo with HTTPS:
+
 ```bash
 git remote -v
 origin	https://github.com/spbail/git_workshop.git (fetch)
 origin	https://github.com/spbail/git_workshop.git (push)
 ```
+The URL will look different if you have cloned it with SSH.
 
-**Note 1:**  
-* Notice you have push and pull access  
-
-**Note 2:**
-* To remove a remote:  <kbd> git remote rm <remote_name> </kbd>
+**Notes**
+1. Each remote has a name (e.g. `origin`) and a URL. Remotes can have any name you want, but `origin` is the default for the default remote when you first clone your repo.
+2. Notice you have push and pull access to the remote.  
+3. To remove a remote:  `git remote rm <remote_name>`
 
 ## Step 8:  Update a local repo from a remote (pull)
 
 This step syncs changes from a *remote* repository to a *local* repository. This is usually important when you're collaborating with someone else and they might have made changes to files in the repo.
 
-:key:  You usually do this **before starting work in a repository so you have the most up-to-date-changes.**   
-**Note:**  this is a good step to practice even though the first time you clone a repo it will already be up to date.   
+You usually do this **before starting work in a repository so you have the most up-to-date-changes.**   
 
-- <kbd> git pull </kbd> 
-- create `name.py` file on GitHub 
-- <kbd> git pull </kbd> to sync repo
+**Note:**  This is a good step to practice even though the first time you clone a repo it will already be up to date.   
+
+Let's do a small exercise to pretend someone has made changes to the repo content:
+* Run `git pull` in your local repo.
+* On GitHub, create a new file called `name.py` and add a `print('Hello!')`
+* In your local repo, run `git pull` to sync the new file to your machine.
+
 
 ## Step 9:  Update a remote repo with local changes (push)
-This step copies syncs a remote repository with a local repository.  
-:key:  We usually **don't make changes on master. We'll cover branches in the next section!**   
+This step syncs a remote repository with a local repository. We usually **don't make changes on the main branch. We'll cover branches in the next section!**   
 
-## Step 10:  Create a new file
-<kbd> ls </kbd>  
-<kbd> touch <file_name> </kbd>  
-	
-<kbd> touch another_file.md </kbd>  
-
->my example
+**Create a new file and verify it's there: **
 ```bash
-ls
 touch another_file.md
-```
-```bash
-ls
-total 8
--rw-r--r--  1   32 Nov 22 09:39 README.md
-% touch another_file.md
-% ls
-total 8
--rw-r--r--  1   32 Nov 22 09:39 README.md
--rw-r--r--  1    0 Nov 22 09:49 another_file.md
-
-	another_file.md
+ls -lah
 ```
 
 ---
-# :arrow_right_hook: Git Workflow
+# :arrow_right_hook: Standard Git workflow
 
-## Git Flow 
+## Git flow in your terminal
 | #     | Command                   | Step  | Description      |
 |-------|---------------------------| -----|------------------|
-|  1    | `git add <filename>`      | begin tracking a file | adds a change in the working directory to the staging area; tells Git that you want to include updates to a particular file in the next commit.  |    
-|  2    | `git commit -m "message"` | log the change | changes are recorded in Git (interaction is with local repo) |  
-|  3    | `git push`                | finalize the change | changes are pushed from Git (local, terminal) to GitHub (browser account, remote) | 
+|  1    | `git add <filename>`      | Begin tracking a file | Adds a change in the working directory to the staging area; tells Git that you want to include updates to a particular file in the next commit.  |    
+|  2    | `git commit -m "message"` | Log the change | Changes are recorded in Git (interaction is with local repo) |  
+|  3    | `git push`                | Finalize the change | Changes are pushed from Git (local, terminal) to GitHub (browser, remote) | 
  
 **Note:**  It is better to make many commits with smaller changes rather than of one commit with massive changes: small commits are easier to read and review. **However** you might want to "squash" all your commits in the end to make sure the Git history isn't cluttered.
 
 
-## Step 11:  get status of repo
-<kbd> git status </kbd>  
+## Step 11:  Get status of repo
+`git status`
 >my example
 ```bash
 % git status
