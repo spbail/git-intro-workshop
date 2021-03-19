@@ -11,11 +11,11 @@ This is a fork of Reshama's workshop by **Sam Bail [@spbail](http://twitter.com/
 ### About This Workshop
 
 Git is the most widely used modern version control system in the world today. GitHub has quickly become one of the key tools for hosting Git repositories, and has quickly become an important collaboration platform for open source development. In this workshop, you will learn the basics of version control with Git and GitHub. We will cover
-- some basic theory behind the version control tool git
-- creating a new repository
-- making new commits
-- creating branches and pull requests
-- forking repositories
+- Some basic theory behind the version control tool git
+- Creating a new repository
+- Making new commits
+- Creating branches and pull requests
+- Forking repositories
 
 There are no pre-requisites for learners, but some basic knowledge of shell commands will be helpful.
 

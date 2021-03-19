@@ -1,41 +1,39 @@
-# Setup
+# Git setup
 
+In this step, you will configure some basic settings on your local computer in order to work with Git.
 
-## Step 1:  Configure user (on local computer)
+## Step 1:  Configure Git user (on local computer)
 
 ### Configure user name and email (lets Git know who you are)
-<kbd> git config --global user.name "First Last"  </kbd>  
-<kbd> git config --global user.email "myname@email.com"  </kbd>  
+Type the following commands in your terminal and replace with your name and email:
+```bash
+git config --global user.name "Firstname Lastname"
+git config --global user.email "myname@email.com"
+```
 
-To verify these additions, type:  
-<kbd> git config --list  </kbd>  
+To verify these additions, type `git config --list` 
 
 ### Configure (terminal) editor of choice
-<kbd> git config --global core.editor "nano -w"  </kbd> 
+This determines which editor Git uses by default to edit commit messages. We set it to use "Vim" on Mac OS (check out the link below for Windows options):
+
+```bash
+git config --global core.editor "vim"
+```
 
 Other editor options can be found in [Setting Up Git](http://swcarpentry.github.io/git-novice/02-setup/)
 
 ---
 
-## Step 2: Create Your Working Directory for Git Repos
-Navigate to your home directory where you want to create a directory for the git work.   
-<kbd> cd ~ </kbd>  
+## Step 2: Create your working directory for Git repos
 
-Create the directories:  
-<kbd>  mkdir ds  </kbd>  
-<kbd>  mkdir ds/gitsample </kbd>  
-<kbd>  cd ds/gitsample </kbd>  
-<kbd>  pwd </kbd>  
-  
->my example
+I generally put all repos in one directory called `code`. It's totally up to you how you organize your directories, but let's use the following structure for this workshop.
+
+Navigate to your home directory, then create the directory for your Git repositories and for this workshop:
 ```bash
-pwd
-/Users/reshamashaikh
+cd ~
+mkdir code
+mkdir code/git_workshop
+cd code/git_workshop
 ```
-```bash
-mkdir ds
-mkdir ds/gitsample
-cd ds/gitsample
-pwd
-/Users/reshamashaikh/ds/gitsample
-```
+
+Whenever I create a new repo or any kind of project, I usually do that in the `code` directory.

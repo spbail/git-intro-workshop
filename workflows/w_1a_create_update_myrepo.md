@@ -1,37 +1,39 @@
 # Workflow 1a:  Create and Update My Repo
 
-#### This is your checklist:
+#### In this workflow, you will learn how to:
 - [ ] Create a repo on GitHub (GH)
 - [ ] Clone a repo
 - [ ] Look at remotes
 - [ ] Update a local repo from the remote (pull)
 - [ ] Update a remote from local changes (push)
-- [ ] Look at git history
+- [ ] Look at Git history
 
 ---
 
 ## Step 0:  Configure user
-REMINDER:  Did you [configure the git user name on your machine?](https://github.com/reshamas/git-intro-workshop/blob/master/workflows/w_0_3_setup.md#step-1--configure-user-on-local-computer)
+**REMINDER:**  Did you [configure the Git user name on your machine?](https://github.com/reshamas/git-intro-workshop/blob/master/workflows/w_0_3_setup.md#step-1--configure-user-on-local-computer)
 
 ## Step 1:  Create a repo (on GitHub)
 - Click on `+` next to your profile picture
-- Select `New Repository`
+- Select `New repository`
 - Repository name:  `git_workshop`
-- Description (optional):  `Test project for git workshop`
-- `Public` repos are free
+- Description (optional):  `My repo for the git workshop!`
+- Select `Public` for the repo setting
 - Check box for `Initialize this repository with a README`
 - Click green button `Create repository`
 
 ## Step 2:  Let's add a couple of files
 
-Usually, we'd be creating and modifying files (e.g. code) on our own machines and then pushing them to GitHub. For the purpose of this workshop, we'll start with just creating some files directly on GitHub!
+Usually, we'd be creating and modifying files (e.g. code) on our own machines and then pushing them to GitHub. However, for the purpose of this workshop, we'll start with creating some files directly on GitHub!
 
-- Add a Markdown file:  `my_file.md`
+- On your repo homepage (Under `<> Code`), click the `Add file` button
+- Select ` Create new file'
+- Add a Markdown file: `mymarkdown.md`
   - Add some text
   - Commit file at end of page
   - Add a description for GitHub commit
 - Add a Python file: `hello.py`
-  - Add a line, the ubiquitous:  `print("Hello World")`
+  - Add a line, the ubiquitous: `print("Hello World")`
   - Commit file at end of page
   - Add a description for GitHub commit
   
@@ -39,9 +41,9 @@ Usually, we'd be creating and modifying files (e.g. code) on our own machines an
 
 ### Note: Ensure commit messages are meaningful.
 
-<p>
-<img src="../images/useless_commit.png" width="45%" height="45%" />
-</p>
+Commit messages are an easy way for yourself and other people to know what each change (commit) includes. Make them meaningful and describe what you did, rather than just "fix" or "tweak" or "foo".
+
+![Useless commit messages](../images/useless_commit.png)
 
 
 ## Step 3: `clone` the repo from GitHub to our local machine
