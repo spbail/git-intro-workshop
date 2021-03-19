@@ -22,7 +22,7 @@
 - Check box for `Initialize this repository with a README`
 - Click green button `Create repository`
 
-## Step 2:  Let's add a couple of files
+## Step 2:  Let's play around on GitHub
 
 Usually, we'd be creating and modifying files (e.g. code) on our own machines and then pushing them to GitHub. However, for the purpose of this workshop, we'll start with creating some files directly on GitHub!
 
@@ -31,11 +31,11 @@ Usually, we'd be creating and modifying files (e.g. code) on our own machines an
 - Add a Markdown file: `mymarkdown.md`
   - Add some text
   - Commit file at end of page
-  - Add a description for GitHub commit
+  - Add a useful description as commit message
 - Add a Python file: `hello.py`
   - Add a line, the ubiquitous: `print("Hello World")`
   - Commit file at end of page
-  - Add a description for GitHub commit
+  - Add a useful description as commit message
   
 **The usual workflow is to create a repo, clone it, create and edit all your files locally, and then push things to your repo. We're just creating files on GitHub for a quick start!**
 
@@ -51,40 +51,22 @@ Commit messages are an easy way for yourself and other people to know what each 
 **Q:  What is cloning?**  
 **A:  Making a copy of something.**
 
-For git, it generally means making a local copy of a repository that's hosted somewhere else.
+For Git, it generally means making a *local copy* of a repository that's hosted somewhere else.
 
 ### Copy URL for cloning
 
-Click on the green button for your forked GitHub repo, and ensure it is showing the URL for **Clone with HTTPS**  (other option is "Clone with SSH").  Copy that URL.    <br> 
-<img src="../images/github_clone_button.png" align="left" height="40" width="180" >   <br> <br>
-    
->my example  
-```text
-https://github.com/spbail/git_workshop.git
-```
+Click on the green button on the home page of your "git_workshop" repo on GitHub. It will show two URL options:
+- If you have not yet set up your SSH keys, you will authenticate with username and password - pick the HTTPS URL to clone the repo
+- If you have already set up your SSH keys, pick the SSH option
+- Copy the URL!
 
-## Step 4:  Go to working directory (your local terminal)
-Go to your working directory  
->my example
-```bash
-cd /Users/sam/ds/gitsample
-```
-```bash
-pwd
-/Users/sam/ds/gitsample
-```  
 
-## Step 5:  clone the repo  
-<kbd> git clone <url_name> </kbd> 
->my example
+## Step 4:  Clone the repository to your local machine  
+Open your terminal, go to your working directory, and clone your repo. **Make sure to use your own URL!!**
+
 ```bash
+cd /Users/sam/code/
 git clone https://github.com/spbail/git_workshop.git
-```
-```bash
-Cloning into 'git_workshop'...
-remote: Counting objects: 3, done.
-remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
-Unpacking objects: 100% (3/3), done.
 ```
 
 ## Step 6:  `cd` into the repo

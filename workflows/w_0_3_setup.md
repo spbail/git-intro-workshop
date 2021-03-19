@@ -32,8 +32,6 @@ Navigate to your home directory, then create the directory for your Git reposito
 ```bash
 cd ~
 mkdir code
-mkdir code/git_workshop
-cd code/git_workshop
 ```
 
-Whenever I create a new repo or any kind of project, I usually do that in the `code` directory.
+Whenever I create a new repo or any kind of project, I usually do that in the `code` directory. Some people like to call it `repos` or something else.
