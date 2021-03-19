@@ -1,4 +1,3 @@
-
 # Workflow 0.1: Installations
 
 ## Step 1:  Access to Terminal 

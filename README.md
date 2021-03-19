@@ -19,31 +19,31 @@ Git is the most widely used modern version control system in the world today. Gi
 
 There are no pre-requisites for learners, but some basic knowledge of shell commands will be helpful.
 
-### Installation
-This workshop covers the Git CLI (command line interface), *not Git GUI*.  
-
-### Part 0: Pre-workshop Preparation
-
-#### Part 0.1:  [Software Installations](/workflows/w_0_1_installs.md) (Required)
-
-#### Part 0.2:  [SSH Keys](/workflows/w_0_2_ssh_keys.md) (Optional)
-
-#### Part 0.3:  [Setup](/workflows/w_0_3_setup.md) (Required)
+**Note:** This workshop teaches you the basic workflows to interact with Git. We won't cover a lot of theory or "what's going on behind the scenes". In order to become fluent in Git and deal with merge conflicts and other complex workflows, you should read up on the inner workings. I recommend ["How Does Git Actually Work?"](https://www.raywenderlich.com/books/advanced-git/v1.0/chapters/1-how-does-git-actually-work).
 
 
-### Objectives
+### Pre-workshop preparation
 
-* Introduction to Git & GitHub
-     - Intro to version control and Git
-     - Intro to GitHub
-     - Settings
-     - Navigating GitHub
-* Individual repositories 
-     - Learn to create a repo on GitHub and update via Git
-     - Clone a repository (copy from GitHub browser to local machine using Git)
-     - Make and sync changes between a local and remote repo
-     - Create a branch and work from it
-     - (Optional) Undo Git changes
-* Collaborating
-     - Fork someone else's repo
-     - Make changes and submit a pull request
+Please complete these steps before the workshop.
+
+#### Workflow 0.1:  [Software Installations](workflows/w_0_1_installs.md) (Required)
+
+#### Workflow 0.2:  [SSH Keys](workflows/w_0_2_ssh_keys.md) (Optional)
+
+#### Workflow 0.3:  [Setup](workflows/w_0_3_setup.md) (Required)
+
+### Workshop content
+
+#### Intro: [Brief intro to Git and GitHub](workflows/intro.md)
+
+#### Workflow 1.1: [Create & update your repo](workflows/w_1_1_create_inspect_myrepo.md)
+  
+#### Workflow 1.2: [Pushing and pulling aka the Git workflow](/workflows/w_1_2_git_workflow.md)
+
+#### Workflow 1.3: [Working with branches](workflows/w_1_3_branches.md)
+
+#### Workflow 2: [Collaboration: Working with someone else's repo](workflows/w_2_pull_request_org_repo.md)
+
+
+
+
