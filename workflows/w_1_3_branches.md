@@ -1,124 +1,137 @@
-# Workflow 1b: Branches in git
+# Workflow 1.3: Branches in git
 
-- [ ] Create a branch
-- [ ] Switch to another branch
-- [ ] Makes changes and push changes to GH from terminal
-- [ ] Submit a pull request (PR) on GH
+### In this workflow, you will learn how to:
 
-## :arrow_right_hook: Why use branches?
-- **Branching** means you diverge from the main line (usually the "master" branch) of development and continue to do work without changing the main line, like "scratch paper" but for online coding.  
-- Can work on different parts in the codebase, or "features" or "web page updates"
-    - create a separate *history* for each new *feature*
-- This is an interesting article on branches:  [Atlassian tutorial on branches](https://www.atlassian.com/git/tutorials/using-branches)
+1. List branches in your local repo
+2. Create a new working branch in your local repo
+3. Switch to a new working branch
+4. Make changes on your working branch and commit them
+5. Push changes to a branch on GitHub
+6. Submit a pull request (PR) on GitHub
+7. Sync merged changes to your main branch
+
+## Why use branches?
+
+- **Branching** means you diverge from the main line (usually the "main" branch) of development and continue to do work without modifying the main line, like "scratch paper" but for code.
+- We generally start all new changes on a new branch, especially when working in a shared repo.
+- This minimizes disruption to the main branch, which should always be the most recent working version of our code. Branches allow us to experiment and break things.
+- This is an interesting article on branches: [Atlassian tutorial on branches](https://www.atlassian.com/git/tutorials/using-branches)
 
 
-## Step 1:  list branches
-<kbd> git branch </kbd>  
->my example
-```git
+## Step 1:  List branches in your local repository
+
+```bash
 git branch
-* master
 ```
  
-## Step 2:  create a working branch (or "feature branch")
-<kbd> git branch <branch_name> </kbd>
-	
->my example  
-`git branch sam_wip`
+## Step 2:  Create a new working branch (or "feature branch")
 
-**Note:** You can create a branch off of any branch, not just master. When creating a new branch, make sure you're branching off of the right thing! When working in shared repos, it's also good practice to go to master (or the feature branch you want to work off) and pull from the remote before branching. That way you're branching off of the latest status of the repo. 
+```bash
+git branch example_branch
+```
 
-## Step 3:  list branches
-<kbd> git branch </kbd>  
->my example
+You can verify that the branch was created:
+
 ```bash
 git branch
-* master
-  sam_wip
 ```
 
-## Step 4:  switch to working branch
-<kbd> git checkout <branch_name> </kbd>  
->my example  
+**Notes:** 
+- You can create a branch off of any branch, not just main. When creating a new branch, make sure you're branching off of the right thing!
+-When working in shared repos, it's also good practice to go to main (or the feature branch you want to work off) and pull from the remote before branching. That way you're branching off of the latest status of the repo.
+- Branch naming is totally up to you. For shared repos, I usually prefix with my name, e.g. `git branch sam/example_branch`.
+
+
+## Step 3:  Switch to working branch
+
+Once you've created your new branch, you need to switch to it in order to make all changes on that new branch:
+  
 ```bash
-git checkout sam_wip
+git checkout example_branch
 ```
 
-## Alternative (one-line) workflow for Steps 21 and 23:
-<kbd> git checkout -b <branch_name> </kbd>
+You can then verify that you're on the new branch:
+```bash
+git status
+```
 
-## Step 5:  create a new file
-<kbd>  ls </kbd>  
-<kbd> touch <file_name> </kbd>  
+### Alternative (one-line) workflow for the above steps:
+
+I often run the creation and switching in one step:
+
+```bash
+git checkout -b <branch_name> 
+```
+
+## Step 4: Modify a file on your branch
+
+Open the existing file `another_file.md` in a text editor and change the text a little. Then check the status of the repo to see that the file has been changed:
+
+```bash
+git status
+```
+
+## Step 5: Go through the git add/commit workflow
+
+Use git add and commit to make a new "commit" for modified file and verify the commit is in the log:
+
+```bash
+git add another_file.md
+git commit -m "Made some changes to the text."
+git log
+```
+
+## Step 6:  Push changes to your working branch
+
+When pushing from the `main` branch, Git already knows what remote and branch to use. However, for new branches, you will need to specify the remote and branch when pushing:
+
+```bash
+git push origin example_branch
+```
+
+## Step 7: Look at files on working branch on GitHub
+
+- Go to your repo on GitHub
+- Toggle "Branch" dropdown to find our working branch
+- Click the file and confirm that your changes are there
 	
-<kbd> touch mercury.md </kbd>  
+## Step 8: Creating a pull request (on GitHub)
 
->my example
+A "pull request" (PR) is a way to compare the new code on your branch to another branch, usually "main". That way, other collaborators can review your code and approve it to be **merged** into main, or request changes.
+
+- There are several ways to open a pull request. You can use any of the following:
+  1. For a recently created branch, your repo homepage will have a green button at the top *"Compare and pull request"*.
+    2. The "branches" page also has a *"New pull request"* button for each branch.
+- At the top of the PR page, you'll see what repo and branch you're comparing to.
+- Make sure the title and comment are useful for whoever will be reviewing the PR.
+- Then click the green button to create your PR.
+- The PR will show up under the "Pull requests" tab in your repo. You can accept your own PR for now and click "Merge pull request"
+
+## Step 9: Sync the local main branch
+
+Remember that after merging the changes to main on GitHub, they are still only on your **local working branch** and on the **main branch on GitHub**. Merging the PR in GitHub means your local main branch is now a commit behind. 
+
+You can simply switch to the local `main branch`, pull to sync the changes from the remote and confirm that the most recent commit is now there:
+
 ```bash
-ls
-touch mercury.md
+git checkout main
+git pull
+git log
 ```
-```bash
-ls
-total 8
--rw-r--r--  1   32 Nov 22 09:39 README.md
-% touch mercury.md
-% ls
-total 8
--rw-r--r--  1   32 Nov 22 09:39 README.md
--rw-r--r--  1    0 Nov 22 09:49 mercury.md
+That way your local main branch is up to date again.
 
-	mercury.md
-```
 
----
-## Step 6: go through the git add/commit workflow
-Use git add and commit to make a new "commit" for the mercury.md file.
+## Some more info on branches (if we have time)
 
-## Step 7:  push changes to your 'working branch' 
-<kbd> git push <remote_name> <branch_wip> </kbd>  
-	
->my example
-```bash
-git push origin sam_wip
-```	
+This is what we do when we create a feature branch off of the `main` branch:
+![Branching 1](../images/branches1.png)
 
-```bash
-Counting objects: 3, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (3/3), 273 bytes | 0 bytes/s, done.
-Total 3 (delta 0), reused 0 (delta 0)
-To https://github.com/spbail/gitclass.git
- * [new branch]      sam_wip -> sam_wip
- ```
+This is what it looks like when feature branches are merged back into the `main` branch:
 
-## Step 8:  look at files on working branch (on GitHub)
-- go to repo on GitHub
-- toggle "Branch" dropdown to find our working branch
-- confirm that new file is there!
-	
-## Step 9:  submit pull request (on GitHub)
-Go to GitHub and refresh your browser.  
-My url is:  https://github.com/spbail/gitclass  
+![Branching 2](../images/branches2.png)
 
-Select green button "Compare and pull request"  
-<img src="../images/pull_request_button.png" align="left" height="40">   <br> <br>
+You can also branch off of a branch that's not `main`. We often use this pattern if we have a longer running "feature branch" and want to make small changes against that branch rather than `main`:
 
----
+![Branching 3](../images/branches3.png)
 
-### Summary of Steps for using branches
-<kbd> cd /Users/sam/ds/gitsample </kbd>  
-<kbd>  pwd </kbd>   
-<kbd> git clone https://github.com/spbail/gitclass.git </kbd>   
-<kbd> cd gitclass </kbd>   
-<kbd> git remote -v </kbd>  
-<kbd> git pull </kbd>  
-<kbd> git branch </kbd> <kbd> git branch sam_wip </kbd>  
-<kbd> git branch </kbd> <kbd> git checkout sam_wip </kbd>  
-<kbd>  ls </kbd>  
-<kbd> touch mercury.md </kbd>  
-<kbd>  ls </kbd>  
-<kbd>  git status </kbd> <kbd>  git add mercury.md </kbd>  		  
-<kbd>  git status </kbd> <kbd>  git commit -m 'adding second planet' </kbd>  		  
-<kbd>  git status </kbd> <kbd>  git push origin sam_wip </kbd>  
+**Make sure you run `git status` to check what branch you're on before creating a new branch off it!**

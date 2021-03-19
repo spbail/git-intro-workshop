@@ -1,12 +1,11 @@
-# Workflow 1a:  Create and update my repo
+# Workflow 1.1:  Create and inspect my repo
 
-#### In this workflow, you will learn how to:
-- [ ] Create a repo on GitHub (GH)
-- [ ] Clone a repo
-- [ ] Look at remotes
-- [ ] Update a local repo from the remote (pull)
-- [ ] Update a remote from local changes (push)
-- [ ] Look at Git history
+### In this workflow, you will learn how to:
+1. Create a repo on GitHub
+2. Create and edit files on GitHub
+3. Clone a repo to your local machine
+4. Inspect your repo status and history
+5. Look at remotes
 
 ---
 
@@ -28,7 +27,7 @@
 Usually, we'd be creating and modifying files (e.g. code) on our own machines and then pushing them to GitHub. However, for the purpose of this workshop, we'll start with creating some files directly on GitHub!
 
 - On your repo homepage (Under `<> Code`), click the `Add file` button
-- Select ` Create new file'
+- Select `Create new file`
 - Add a Markdown file: `mymarkdown.md`
   - Add some text
   - Commit file at end of page
@@ -47,7 +46,7 @@ Commit messages are an easy way for yourself and other people to know what each 
 ![Useless commit messages](../images/useless_commit.png)
 
 
-## Step 3: `clone` the repo from GitHub to our local machine
+## Step 3: Clone the repo from GitHub to your local machine
 
 **Q:  What is cloning?**  
 **A:  Making a copy of something.**
@@ -61,7 +60,7 @@ Click on the green button on the home page of your "git_workshop" repo on GitHub
 - Copy the URL!
 
 
-## Step 4:  Clone the repository to your local machine  
+**Clone the repository:**
 Open your terminal, go to your working directory, and clone your repo. **Make sure to use your own URL!!**
 
 ```bash
@@ -69,7 +68,8 @@ cd /Users/sam/code/
 git clone https://github.com/spbail/git_workshop.git
 ```
 
-## Step 6:  Inspect the repo
+
+## Step 4:  Inspecting the repo: .git directory, git status, and git log
 
 Navigate to the repo you just cloned and look at the files and directories it contains:
 
@@ -78,16 +78,52 @@ cd git_workshop
 ls -lah
 ```
 
-**Running git status**:
-`git status` always shows you the current status of your repository. It shows what branch you are on and what the status of the files in your repository is. Go ahead 
+### The (hidden) .git directory in your repo:
+This is where Git stores all the information about your repository, e.g. the state it's in, configuration, etc. I'll just open the directory in my Finder and look at some of the files, e.g. `config`, `refs`, etc.
+
+
+### Running git status**
+`git status` always shows you the current status of your repository. It shows what branch you are on and the status of the files in your repository:
+
+```bash
+git status
+```
+
+You should get into the habit of running `git status` frequently to orient yourself and make sure you're not accidentally doing something you didn't intend.
+
 	
-**Quick detour: let's look at the contents of the (hidden) .git directory in your repo!**
+### Git history, aka running git log
 
-## Step 7:  Look at remotes
-**Q:  What is a remote?**  
-**A:  **Remotes** are copies of a repo on another computer **(or on a service like GitHub)****
+A **commit** is a snapshot of your files at a point in time that's associated with an author and a list of changes. Commits are probably the **most important concept in Git**, because they're keeping track of the version history of the files in your repo -- this is what **version control** is all about! 
 
-This is what `git remote` looks like if you have cloned your repo with HTTPS:
+You can see the list of all commits in your repository via the `git log` command. Right now, you will see the commits for the new files you created on GitHub in the previous step:
+
+```bash
+git log
+```
+
+Each commit has a **commit hash** (you'll see either the long or short version depending on your local config) that is used to identify that particular commit.
+
+## git blame and git show
+
+Sometimes you want to know who made changes to a particular line in a file. You can use `git blame <filename>` to see each line annotated with the commit hash and author:
+
+```bash
+git blame hello.py 
+```
+
+By using `git show <commit hash>` you can see all the changes associated with a specific commit:
+
+```bash
+git show 13afc8e450045f80cf00633a438547091bcac4c1
+```
+
+
+## Step 5: Inspecting the repo: Look at remotes
+
+**Remotes** are copies of a repo on another computer (or on a service like GitHub). In this context, a remote is a "pointer" to such a copy. You can use the `git remote` command to show all remotes that are configured for your repo.
+
+This is what `git remote` looks like if you have cloned your repo with HTTPS. The `-v` flag just means "verbose" (full) output:
 
 ```bash
 git remote -v
@@ -96,188 +132,8 @@ origin	https://github.com/spbail/git_workshop.git (push)
 ```
 The URL will look different if you have cloned it with SSH.
 
-**Notes**
+**Notes:**
 1. Each remote has a name (e.g. `origin`) and a URL. Remotes can have any name you want, but `origin` is the default for the default remote when you first clone your repo.
 2. Notice you have push and pull access to the remote.  
 3. To remove a remote:  `git remote rm <remote_name>`
-
-## Step 8:  Update a local repo from a remote (pull)
-
-This step syncs changes from a *remote* repository to a *local* repository. This is usually important when you're collaborating with someone else and they might have made changes to files in the repo.
-
-You usually do this **before starting work in a repository so you have the most up-to-date-changes.**   
-
-**Note:**  This is a good step to practice even though the first time you clone a repo it will already be up to date.   
-
-Let's do a small exercise to pretend someone has made changes to the repo content:
-* Run `git pull` in your local repo.
-* On GitHub, create a new file called `name.py` and add a `print('Hello!')`
-* In your local repo, run `git pull` to sync the new file to your machine.
-
-
-## Step 9:  Update a remote repo with local changes (push)
-This step syncs a remote repository with a local repository. We usually **don't make changes on the main branch. We'll cover branches in the next section!**   
-
-**Create a new file and verify it's there: **
-```bash
-touch another_file.md
-ls -lah
-```
-
----
-# :arrow_right_hook: Standard Git workflow
-
-## Git flow in your terminal
-| #     | Command                   | Step  | Description      |
-|-------|---------------------------| -----|------------------|
-|  1    | `git add <filename>`      | Begin tracking a file | Adds a change in the working directory to the staging area; tells Git that you want to include updates to a particular file in the next commit.  |    
-|  2    | `git commit -m "message"` | Log the change | Changes are recorded in Git (interaction is with local repo) |  
-|  3    | `git push`                | Finalize the change | Changes are pushed from Git (local, terminal) to GitHub (browser, remote) | 
- 
-**Note:**  It is better to make many commits with smaller changes rather than of one commit with massive changes: small commits are easier to read and review. **However** you might want to "squash" all your commits in the end to make sure the Git history isn't cluttered.
-
-
-## Step 11:  Get status of repo
-`git status`
->my example
-```bash
-% git status
-On branch master
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-	another_file.md
-nothing added to commit but untracked files present (use "git add" to track)
-```
-    
-## Step 12:  Add/stage a file
-<kbd> git add <file_name> </kbd>   
-	
->my example  
-```bash
-git add another_file.md 
-```
-
-**Note:**  to `add` a file is to begin tracking it:  
-- Adds a change in the working directory to the staging area
-- Tells Git that you want to include updates to a particular file in the next commit
-
-## Step 13:  Get status of repo
-<kbd> git status </kbd>  
->my example
-```bash
-% git status
-On branch sam_wip
-Changes to be committed:
-  (use "git reset HEAD <file>..." to unstage)
-
-	new file:   another_file.md
-```
-
-## Step 14:  commit a file  
-<kbd> git commit -m 'message' </kbd>  
-	
->my example
-```bash
-git commit -m 'Adding a new file'
-```
-	
-```bash
-% git commit -m 'Adding a new file'
-[master 3950dd9] Adding a new file
- 1 file changed, 0 insertions(+), 0 deletions(-)
- create mode 100644 another_file.md
-```
-**Note:**  to `commit` a file is to "log the change":  
-- Changes are recorded in Git (interaction is with local repo)
-
-## Step 15:  Get status of repo
-<kbd> git status </kbd>  
->my example
-```bash
-% git status
-On branch master
-Changes to be committed:
-  (use "git reset HEAD <file>..." to unstage)
-
-	new file:   another_file.md
-```
-
-## Step 19:  push changes to your remote repo
-<kbd> git push </kbd>  
-	
->my example
-```bash
-git push
-```	
-
-```bash
-Counting objects: 3, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (3/3), 273 bytes | 0 bytes/s, done.
-Total 3 (delta 0), reused 0 (delta 0)
-To https://github.com/spbail/git_workshop.git
- * [new branch]      master -> master
- ```
-**Note:**  to `push` a "commit" is to "finalize the change":  
-- changes are pushed from Git (local) to GitHub (browser account, remote)
-
-## Final step
-Look at new file on GitHub!
-
----
-
-# Git history
-
-(Not that kind of history)
-
-## What is a commit?
-A commit is a snapshot of your files at a point in time that's associated with an author and a list of changes. You can see the list of all commits in your repository via the git log:
-<kbd>git log</kbd>
-
->my example
-```bash
-git log
-```
-
-```bash
-commit 13afc8e450045f80cf00633a438547091bcac4c1
-Author: Sam Bail <samanthapbail@gmail.com>
-Date:   Tue Aug 6 15:50:21 2019 -0400
-
-    Create hello.py
-```
-
-Each commit has a **commit hash** (you'll see either the long or short version) that is used to identify that particular commit.
-
-## git blame and git show
-
-Sometimes you want to know who made changes to a particular line in a file. You can use `git blame <filename>` to see each line annotated with the commit hash and author:
-
-```bash
-git blame holiday.md 
-```
-```bash
-fb319636 (Sam Bail 2019-08-06 15:50:02 -0400 1) Looking forward to the party :pizza: ! :smiley:
-```
-
-By using `git show <commit hash>` you can see all the changes associated with a specific commit:
-
-```bash
-git show fb319636
-```
-```bash
-commit fb319636d437015d7893663df58fdef840b04b41
-Author: Sam Bail <samanthapbail@gmail.com>
-Date:   Tue Aug 6 15:50:02 2019 -0400
-
-    Create holiday.md
-
-diff --git a/holiday.md b/holiday.md
-new file mode 100644
-index 0000000..62404c4
---- /dev/null
-+++ b/holiday.md
-@@ -0,0 +1 @@
-+Looking forward to the party :pizza: ! :smiley:
-```
+4. Remember seeing the `remotes` in the `.git/config` file? This is where they're configured.

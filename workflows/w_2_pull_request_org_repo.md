@@ -1,199 +1,102 @@
-# Workflow 2:  Submit Pull Request, Steps A to Z
+# Workflow 2: Collaboration: Working with someone else's repo
 
-## Step 1:  fork the repo (on GitHub)
-https://github.com/WiMLDS/python_advanced
+When you collaborate with other people on their work (e.g. at work or for open source projects), you usually work with someone else's repo. In this workflow, you will learn
 
-## Step 2:  copy forked url for cloning 
-<img src="../images/github_clone_button.png" align="left" height="40" >    
-Click on the green button for your forked GitHub repo, and ensure it is showing the url for "Clone with HTTPS"  (other option is "Clone with SSH").  Copy that URL.    
+### In this workflow, you will learn how to:
+1. Fork someone else's repo
+2. Clone the forked repo
+3. Add the original repo as a remote
+4. Make changes to the repo
+5. Open a pull request against the *original repo*
+6. Make changes to the code in an open PR
 
+## Step 1: Forking a repo (on GitHub)
 
-    
->my example  
-```text
-https://github.com/spbail/python_advanced.git
-```
+**Forking** a repo means you're making a copy of the repo in your personal GitHub account. Instead of working directly on the original repo, you generally work on your own copy, then submit a PR against the original repo, and have your changes merged into the original repo at the end.
 
-## Step 3:  go to working directory (your local terminal)
-Go to your working directory  
->my example
+* Go to an existing repo, e.g. **https://github.com/spbail/test_repo/**
+* Click the "Fork" button in the top right corner.
+* That's it! You now have a copy of the test_repo in your GitHub account.
+
+## Step 2: Clone the forked repo
+
+* Go to the repo homepage **in your personal GitHub account**
+* Click the green "Code" button to clone
+* Navigate into the parent directory for your code and clone the repo:
+
 ```bash
-cd /Users/sam/ds/gitsample
+cd ~/code
+git clone https://github.com/<MY GITHUB USER>/test_repo.git
+cd test_repo
 ```
 
-## Step 4:  clone the repo  
-<kbd> git clone <url> </kbd> 
->my example
+## Step 3: Add the original repo as a remote
+
+When working with a fork of someone else's repo, you want to make sure that your fork is in sync with the original repo. In order to do this, you need to tell Git where to find the original repo, i.e. add it as another **remote**.
+
+Look at your current remotes to see that `origin` is set to **your** GitHub URL.
+
 ```bash
-git clone https://github.com/spbail/python_advanced.git
+git remote -v
 ```
 
-## Step 5:  `cd` into the repo
-<kbd> cd <repo_name> </kbd>
->my example
+Go to **the original repo** and copy the URL under "Code" (either HTTPS or SSH).
+
+Add the original repo as a remote. You can choose any name, but we usually refer to the original repo as the `upstream`:
+
 ```bash
-cd python_advanced 
+git remote add upstream https://github.com/spbail/test_repo.git
 ```
 
-## Step 6:  look at remotes
-<kbd> git remote -v </kbd>
->my example
+**Again**, the URL is different if you're using SSH authentication.
+
+Confirm that the remote has been set:
+
 ```bash
-origin	https://github.com/spbail/python_advanced.git (fetch)
-origin	https://github.com/spbail/python_advanced.git (push)
+git remote -vvv
 ```
 
-## Step 7:  add 'upstream' remote
-<kbd> git remote add <remote_name> <url> </kbd>
-  
-<kbd> git remote add upstream <url> </kbd>  
->my example
+This will now allow you to interact with the code in the original repo, e.g. by explicitly pulling changes onto your `main` branch:
+
 ```bash
-git remote add upstream https://github.com/WiMLDS/python_advanced.git
+git pull upstream main
 ```
 
-## Step 8:  look at remotes
-<kbd> git remote -v </kbd>  
->my example
+## Step 4: Make changes on a new working branch
+
+Create a new branch with a somewhat useful name and the switch to it, e.g.
+
 ```bash
-origin	https://github.com/spbail/python_advanced.git (fetch)
-origin	https://github.com/spbail/python_advanced.git (push)
-upstream	https://github.com/WiMLDS/python_advanced.git (fetch)
-upstream	https://github.com/WiMLDS/python_advanced.git (push)
+git branch sam/new_feature
+git checkout sam/new_feature
 ```
+Then make **a small change** to one of the existing files in the repo, or create new files. Up to you!
 
-## Step 9:  update a repo
-This step copies changes from a remote repository to a local repository.  
-**Note:**  this is a good step to practice even though the first time you clone a repo it will already be up to date.   
+Follow the standard Git workflow to create a new commit with a useful commit message that describes your change:
 
-<kbd> git pull </kbd>  
-or a more complete syntax to use is:  
-<kbd> git pull upstream master </kbd>  
-
-**Note:** This syncs from your **upstream** remote (i.e. the "official" WiMLDS repo on github), not your personal fork of it. This way you ensure to keep your fork up-to-date with the main repo changes. It's good practice to do this fairly often in order to avoid your copy drifting too far off of the mainline.
-
-## Step 10:  list branches
-<kbd> git branch </kbd>  
->my example
-```git
-git branch
-* master
-```
- 
-## Step 11:  create a working branch
-<kbd> git branch <branch_name> </kbd>
->my example  
-`git branch sam_wip`
-
-## Step 12:  list branches
-<kbd> git branch </kbd>  
->my example
-```git
-git branch
-* master
-  sam_wip
-```
-
-## Step 13:  switch to working branch
-<kbd> git checkout <branch_name> </kbd>  
->my example  
-`git checkout sam_wip`
-
-## Step 14:  create a file
-Note:  We will submit a pull request to the repo and that file will go here:  https://github.com/WiMLDS/python_advanced/tree/master/submissions  
-
-- create a folder in the repo with your name here:  `python_advanced/submissions`
-- `cd` into this folder, create a folder with your name
-- create a Python file (Example:  `test_python_file.py`)
-
-<kbd> pwd </kbd>  
-<kbd> ls </kbd>  
-<kbd> cd submissions </kbd>  
-<kbd> mkdir sam </kbd>  
-<kbd>  cd sam </kbd>  
-<kbd>  touch test_python_file.py </kbd>  
-
->my example
 ```bash
-% pwd
-/Users/sam/ds/gitsample/python_advanced
-% ls
-total 24
--rw-r--r--  1    66 Nov 22 07:31 README.md
--rw-r--r--  1   506 Nov 22 07:31 q1_define_structures.md
--rw-r--r--  1   328 Nov 22 07:31 q2_function.md
-drwxr-xr-x  6   204 Nov 22 07:31 submissions
-% cd submissions 
-% mkdir sam
-% cd sam
-% touch test_python_file.py
-% ls
-total 0
--rw-r--r--  1   0 Nov 22 09:06 test_python_file.py
-% 
-```
-    
-## Step 15:  add/stage a file
-<kbd> git add <file_name> </kbd>  
->my example  
-`git add test_python_file.py`
-
-## Step 16:  commit a file
-<kbd> git commit -m 'message' </kbd>
->my example
- `git commit -m 'adding my python test file`
- 
-## Step 17:  push changes to your 'working branch'
-<kbd> git push <remote_name> <branch_name> </kbd>  
->my example
-`git push origin sam_wip`
-
-## Step 18 (optional):  copy changes over to master branch
-We'll submit the pull request from the `master` branch.  
-1. Switch to master branch  
-<kbd> git checkout master </kbd>  
-2. Copy file over to master branch  
-<kbd> git checkout sam_wip sam/test_python_file.py </kbd>  
-3. **A**dd / **C**ommit / **P**ush the file to master branch
-```bash
-% pwd
-/Users/sam/ds/gitsample/python_advanced/submissions
-ls sam
-git checkout master
-git checkout sam_wip reshama/test_python_file.py
 git status
-git add sam/test_python_file.py
-git status
-git commit -m ' adding test python file to master branch'
-git status
-git push origin master
-``` 
+git add <your file>
+git commit -m "Fixing the..."
+```
 
-**Note:** This pushes to the `origin` remote, which is your own repo.
+And finally, push the branch to your repo:
+```bash
+git push origin sam/new_feature
+```
 
-## Step 19:  submit pull request (on GitHub)
+## Step 5: Open a PR against the original repo
 
-Select green button "Compare and pull request"  
-<img src="../images/pull_request_button.png" align="left" height="40">   <br> <br>
+Once you're done making changes, you usually want to have them merged back into the original repo. In order to do this, you open a PR and let the owner of the original repo review and accept your changes:
+- Go back to **your** repo homepage and open a PR from the branch you just pushed.
+- On the PR page, make sure your branch is compared against **the main branch in the original repo**.
+- Create the PR with a useful message.
+- The original repo owner (that's me!) can now review and accept your changes to be merged into the original repo.
 
----
+## Step 6: Make changes to code in an open PR
+If you want to make changes to your code and update the PR with changes, you can simply make another local commit and push it to your branch:
 
-## Summary of Steps
-<kbd> cd /Users/sam/ds/gitsample </kbd>  
-<kbd> pwd </kbd>   
-<kbd> git clone https://github.com/spbail/python_advanced.git </kbd>  
-<kbd> cd python_advanced </kbd>   
-<kbd> git remote -v </kbd>  
-<kbd> git remote add upstream https://github.com/WiMLDS/python_advanced.git </kbd>  
-<kbd> git remote -v </kbd>  
-<kbd> git pull </kbd>  or <kbd> git pull upstream master </kbd>  
-<kbd> git branch </kbd> <kbd> git branch sam_wip </kbd>  
-<kbd> git branch </kbd> <kbd> git checkout sam_wip </kbd>  
-<kbd> cd submissions </kbd>  
-<kbd> mkdir sam </kbd>  
-<kbd>  cd sam </kbd>  
-<kbd>  touch test_python_file.py </kbd>  
-<kbd>  ls </kbd>  
-<kbd>  git status </kbd> <kbd>  git add test_python_file.py </kbd>  		  
-<kbd>  git status </kbd> <kbd>  git commit -m 'adding my python test file' </kbd>  		  
-<kbd>  git status </kbd> <kbd>  git push origin sam_wip </kbd> 
+- Make more changes to a file.
+- Run the git add, commit, push to the branch workflow
+- Refresh the PR to see that the changes have been pushed to the branch.
+- Repeat this as often as you want to add changes to the PR. You don't need to push after every commit!

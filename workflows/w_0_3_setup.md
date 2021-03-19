@@ -1,4 +1,4 @@
-# Git setup
+# Workflow 0.3: Local setup
 
 In this step, you will configure some basic settings on your local computer in order to work with Git.
 
