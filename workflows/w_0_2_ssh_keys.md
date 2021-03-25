@@ -7,7 +7,7 @@
   
 **You can skip this step for now and complete it later after the course, but we recommend doing this.**
 
-## Mac users
+## Mac and Linux users
 
 ### Step 1:  Setup `ssh` keys (generate a key pair)
 
