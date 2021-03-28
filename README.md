@@ -11,6 +11,7 @@ This is a fork of Reshama's workshop by **Sam Bail [@spbail](http://twitter.com/
 ### ☕ Buy me a coffee ☕
 
 If you enjoy this workshop and want to say thanks, you can buy me a coffee here: https://www.buymeacoffee.com/sambail
+Thank you 😄
 
 ---
 
