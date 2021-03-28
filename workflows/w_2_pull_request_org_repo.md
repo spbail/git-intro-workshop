@@ -18,6 +18,8 @@ When you collaborate with other people on their work (e.g. at work or for open s
 * Click the "Fork" button in the top right corner.
 * That's it! You now have a copy of the test_repo in your GitHub account.
 
+**I need a volunteer to demo this :) Create a new repo "collab_repo" in your account and share the URL with me!**
+
 ## Step 2: Clone the forked repo
 
 * Go to the repo homepage **in your personal GitHub account**
